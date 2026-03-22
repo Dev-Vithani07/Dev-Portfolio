@@ -1,26 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:wght@400;700&display=swap");
+
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-display: "Syne", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-mono: "Space Mono", monospace;
+
+  --bg-base: #05050f; /* page background */
+  --bg-surface: #0d0d1f; /* cards, navbar */
+  --bg-elevated: #12122a; /* hover, dropdowns */
+  --bg-overlay: #1a1a35; /* modals, tooltips */
+
+  --purple-200: #afa9ec;
+  --purple-400: #7f77dd;
+  --purple-600: #534ab7;
+
+  --teal-200: #5dcaa5;
+  --teal-400: #1d9e75;
+  --teal-600: #0f6e56;
+
+  --blue-200: #85b7eb;
+  --blue-400: #378add;
+  --blue-600: #185fa5;
+
+  --text-primary: #f0eeff;
+  --text-secondary: rgba(200, 196, 255, 0.75);
+  --text-muted: rgba(160, 155, 210, 0.5);
+  --text-accent: #7f77dd;
+
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-default: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --border-accent: rgba(127, 119, 221, 0.35);
+
+  --gradient-button: linear-gradient(135deg, #7f77dd, #534ab7);
+  --gradient-text: linear-gradient(135deg, #afa9ec, #5dcaa5);
+  --gradient-hero: linear-gradient(135deg, #7f77dd, #5dcaa5);
+
+  --glow-purple: 0 0 32px rgba(127, 119, 221, 0.35);
+  --glow-teal: 0 0 24px rgba(93, 202, 165, 0.3);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #05050f;
+  color: #f0eeff;
+}
+
+#tsparticles {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
 }
