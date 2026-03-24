@@ -31,13 +31,13 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-between px-24 overflow-hidden"
+      className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center lg:justify-between px-6 md:px-12 lg:px-24 pt-32 lg:pt-0 pb-16 lg:pb-0 overflow-hidden"
       style={{ background: "var(--bg-base)" }}
     >
       <ParticlesBackground />
 
       {/* Left Side */}
-      <div className="flex flex-col gap-6 z-10 max-w-xl relative">
+      <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-6 z-10 max-w-xl relative w-full">
         {/* Badge */}
         <motion.div
           {...fadeUp(0.1)}
@@ -68,7 +68,7 @@ const Hero = () => {
         </motion.h1>
 
         {/* Role */}
-        <motion.div {...fadeUp(0.3)} className="flex items-center gap-3">
+        <motion.div {...fadeUp(0.3)} className="flex items-center justify-center lg:justify-start gap-3 w-full">
           <div
             className="w-7 h-px rounden-full"
             style={{ background: "var(--gradient-hero)" }}
@@ -91,7 +91,7 @@ const Hero = () => {
         {/* Bio */}
         <motion.p
           {...fadeUp(0.4)}
-          className="text-base leading-relaxed font-light"
+          className="text-base leading-relaxed font-mono"
           style={{ color: "rgba(160,155,210,0.55)" }}
         >
           I build intelligent systems, beautiful web interfaces, and
@@ -99,7 +99,7 @@ const Hero = () => {
         </motion.p>
 
         {/* Buttons */}
-        <motion.div {...fadeUp(0.5)} className="flex gap-4">
+        <motion.div {...fadeUp(0.5)} className="flex flex-wrap justify-center lg:justify-start gap-4">
           <button
             className="px-7 py-3 rounded-full text-sm font-medium text-white cursor-pointer transition-all duration-200"
             style={{ background: "var(--gradient-button)" }}
@@ -136,7 +136,7 @@ const Hero = () => {
         {/* Stats */}
         <motion.div
           {...fadeUp(0.6)}
-          className="flex gap-8 pt-6"
+          className="flex justify-center lg:justify-start gap-8 pt-6 w-full"
           style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
         >
           {[
@@ -167,7 +167,7 @@ const Hero = () => {
         initial={{ opacity: 0, x: 40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 0.61, 0.36, 1] }}
-        className="z-10 relative flex items-center justify-center"
+        className="z-10 relative flex items-center justify-center scale-[0.8] md:scale-90 lg:scale-100 mt-12 md:mt-16 lg:mt-0"
         style={{ width: 340, height: 420 }}
       >
         {/* Outer spinning ring */}
@@ -212,7 +212,7 @@ const Hero = () => {
         <motion.div
           animate={{ y: [0, -8, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-4 -right-8 z-20 px-3 py-2 rounded-xl border border-purple-400/25"
+          className="absolute top-14 -right-8 z-20 px-3 py-2 rounded-xl border border-purple-400/25"
           style={{ background: "var(--bg-surface)" }}
         >
           <div className="text-xs font-mono" style={{ color: "#AFA9EC" }}>
@@ -222,7 +222,6 @@ const Hero = () => {
             className="text-sm font-display font-bold"
             style={{ color: "#f0eeff" }}
           >
-            12+ Built
           </div>
         </motion.div>
 
@@ -235,7 +234,7 @@ const Hero = () => {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute bottom-8 -left-8 z-20 px-3 py-2 rounded-xl border border-purple-400/25"
+          className="absolute bottom-12 -left-8 z-20 px-3 py-2 rounded-xl border border-purple-400/25"
           style={{ background: "var(--bg-surface)" }}
         >
           <div className="text-xs font-mono" style={{ color: "#AFA9EC" }}>
@@ -245,7 +244,7 @@ const Hero = () => {
             className="text-sm font-display font-bold"
             style={{ color: "#f0eeff" }}
           >
-            Play Store
+            Play Store / App Store
           </div>
         </motion.div>
       </motion.div>
