@@ -7,10 +7,10 @@
   --font-body: "DM Sans", sans-serif;
   --font-mono: "Space Mono", monospace;
 
-  --bg-base: #05050f; /* page background */
-  --bg-surface: #0d0d1f; /* cards, navbar */
-  --bg-elevated: #12122a; /* hover, dropdowns */
-  --bg-overlay: #1a1a35; /* modals, tooltips */
+  --bg-base: #05050f;
+  --bg-surface: #0d0d1f;
+  --bg-elevated: #12122a;
+  --bg-overlay: #1a1a35;
 
   --purple-200: #afa9ec;
   --purple-400: #7f77dd;
@@ -55,4 +55,9 @@ body {
   position: absolute !important;
   inset: 0 !important;
   z-index: 0 !important;
+}
+
+
+nextjs-portal {
+  display: none;
 }

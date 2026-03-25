@@ -48,7 +48,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="min-h-screen px-24 py-24 flex flex-col justify-center"
+      className="min-h-screen px-6 md:px-12 lg:px-24 py-16 lg:py-24 flex flex-col justify-center"
       style={{ background: "var(--bg-base)" }}
     >
       <motion.div
@@ -71,7 +71,7 @@ const Skills = () => {
         </h2>
       </motion.div>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {Object.values(skills).map((domain, i) => (
           <motion.div
             key={domain.label}

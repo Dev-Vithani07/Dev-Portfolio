@@ -12,7 +12,7 @@ const ParticlesBackground = dynamic(() => import("@/components/ParticleBg"), {
 
 const roles = ["AI / ML Engineer", "Frontend Developer", "Flutter Developer"];
 
-const Hero = () => {
+const RoleText = () => {
   const [roleIndex, setRoleIndex] = useState(0);
 
   useEffect(() => {
@@ -22,6 +22,24 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
+  return (
+    <AnimatePresence mode="wait">
+      <motion.p
+        key={roleIndex}
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -8 }}
+        transition={{ duration: 0.3 }}
+        className="font-mono text-sm tracking-widest"
+        style={{ color: "#AFA9EC" }}
+      >
+        {roles[roleIndex]}
+      </motion.p>
+    </AnimatePresence>
+  );
+};
+
+const Hero = () => {
   const fadeUp = (delay = 0) => ({
     initial: { opacity: 0, y: 24 },
     animate: { opacity: 1, y: 0 },
@@ -36,12 +54,26 @@ const Hero = () => {
     >
       <ParticlesBackground />
 
-      {/* Left Side */}
-      <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-6 z-10 max-w-xl relative w-full">
-        {/* Badge */}
+
+      <motion.div
+        {...fadeUp(0.1)}
+        className="flex lg:hidden items-center gap-2 w-fit px-4 py-2 rounded-full border border-purple-400/30 order-0 mb-6 z-10"
+        style={{ background: "rgba(127,119,221,0.07)" }}
+      >
+        <div className="w-2 h-2 rounded-full bg-teal-200 animate-pulse" />
+        <span
+          className="font-mono text-xs tracking-widest"
+          style={{ color: "#AFA9EC" }}
+        >
+          available for work
+        </span>
+      </motion.div>
+
+      <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-6 z-10 max-w-xl relative w-full order-2 lg:order-1 mt-8 lg:mt-0">
+
         <motion.div
           {...fadeUp(0.1)}
-          className="flex items-center gap-2 w-fit px-4 py-2 rounded-full border border-purple-400/30"
+          className="hidden lg:flex items-center gap-2 w-fit px-4 py-2 rounded-full border border-purple-400/30"
           style={{ background: "rgba(127,119,221,0.07)" }}
         >
           <div className="w-2 h-2 rounded-full bg-teal-200 animate-pulse" />
@@ -53,7 +85,6 @@ const Hero = () => {
           </span>
         </motion.div>
 
-        {/* Name */}
         <motion.h1
           {...fadeUp(0.2)}
           className="font-display font-extrabold leading-none tracking-tight"
@@ -67,28 +98,17 @@ const Hero = () => {
           </span>
         </motion.h1>
 
-        {/* Role */}
-        <motion.div {...fadeUp(0.3)} className="flex items-center justify-center lg:justify-start gap-3 w-full">
+        <motion.div
+          {...fadeUp(0.3)}
+          className="flex items-center justify-center lg:justify-start gap-3 w-full"
+        >
           <div
             className="w-7 h-px rounden-full"
             style={{ background: "var(--gradient-hero)" }}
           />
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={roleIndex}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.3 }}
-              className="font-mono text-sm tracking-widest"
-              style={{ color: "#AFA9EC" }}
-            >
-              {roles[roleIndex]}
-            </motion.p>
-          </AnimatePresence>
+          <RoleText />
         </motion.div>
 
-        {/* Bio */}
         <motion.p
           {...fadeUp(0.4)}
           className="text-base leading-relaxed font-mono"
@@ -98,9 +118,12 @@ const Hero = () => {
           cross-platform mobile apps.
         </motion.p>
 
-        {/* Buttons */}
-        <motion.div {...fadeUp(0.5)} className="flex flex-wrap justify-center lg:justify-start gap-4">
+        <motion.div
+          {...fadeUp(0.5)}
+          className="flex flex-wrap justify-center lg:justify-start gap-4"
+        >
           <button
+            onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
             className="px-7 py-3 rounded-full text-sm font-medium text-white cursor-pointer transition-all duration-200"
             style={{ background: "var(--gradient-button)" }}
             onMouseEnter={(e) => {
@@ -114,11 +137,14 @@ const Hero = () => {
           >
             View Projects
           </button>
-          <button
-            className="px-7 py-3 rounded-full text-sm cursor-pointer transition-all duration-200 bg-transparent"
+          <a
+            href="/resume.pdf"
+            download="Dev's_Resume.pdf"
+            className="px-7 py-3 rounded-full text-sm cursor-pointer transition-all duration-200 bg-transparent inline-flex items-center justify-center"
             style={{
               color: "rgba(200,196,255,0.75)",
               border: "1px solid rgba(255,255,255,0.13)",
+              textDecoration: "none"
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.borderColor = "#7F77DD";
@@ -129,11 +155,10 @@ const Hero = () => {
               e.currentTarget.style.color = "rgba(200,196,255,0.75)";
             }}
           >
-            Download CV
-          </button>
+            Download Resume
+          </a>
         </motion.div>
 
-        {/* Stats */}
         <motion.div
           {...fadeUp(0.6)}
           className="flex justify-center lg:justify-start gap-8 pt-6 w-full"
@@ -162,15 +187,13 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Right Side */}
       <motion.div
         initial={{ opacity: 0, x: 40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 0.61, 0.36, 1] }}
-        className="z-10 relative flex items-center justify-center scale-[0.8] md:scale-90 lg:scale-100 mt-12 md:mt-16 lg:mt-0"
+        className="z-10 relative flex items-center justify-center scale-[0.8] md:scale-90 lg:scale-100 order-1 lg:order-2 mb-8 lg:mb-0"
         style={{ width: 340, height: 420 }}
       >
-        {/* Outer spinning ring */}
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
@@ -182,7 +205,7 @@ const Hero = () => {
           }}
         />
 
-        {/* Inner spinning ring */}
+
         <motion.div
           animate={{ rotate: -360 }}
           transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
@@ -194,21 +217,19 @@ const Hero = () => {
           }}
         />
 
-        {/* Photo */}
         <div
           className="relative z-10 rounded-3xl overflow-hidden border border-purple-400/20"
           style={{ background: "var(--bg-surface)" }}
         >
           <Image
             src="/me.png"
-            alt="Dev Vithani"
-            width={280}
-            height={340}
-            className="object-cover"
+            alt="Me"
+            width={400}
+            height={400}
+            className="w-full h-auto"
           />
         </div>
 
-        {/* Floating badge top right */}
         <motion.div
           animate={{ y: [0, -8, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -221,11 +242,9 @@ const Hero = () => {
           <div
             className="text-sm font-display font-bold"
             style={{ color: "#f0eeff" }}
-          >
-          </div>
+          ></div>
         </motion.div>
 
-        {/* Floating badge bottom left */}
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{

@@ -22,27 +22,9 @@ export default function Projects() {
 
   return (
     <>
-      <style>{`
-        .proj-section { padding: 96px 96px; }
-        .proj-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 16px;
-        }
-        @media (max-width: 1024px) {
-          .proj-section { padding: 80px 48px; }
-          .proj-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 640px) {
-          .proj-section { padding: 64px 24px; }
-          .proj-grid { grid-template-columns: 1fr; }
-          .proj-header { flex-direction: column; align-items: flex-start; }
-        }
-      `}</style>
-
       <section
         id="projects"
-        className="proj-section"
+        className="px-6 md:px-12 lg:px-24 py-16 lg:py-24"
         style={{ background: 'var(--bg-base)' }}
       >
 
@@ -52,7 +34,7 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, ease: [0.22, 0.61, 0.36, 1] }}
           viewport={{ once: true }}
-          className="proj-header flex items-end justify-between flex-wrap gap-6 mb-12"
+          className="flex flex-col sm:flex-row items-start sm:items-end justify-between flex-wrap gap-6 mb-12"
         >
           <div>
             <p
@@ -93,7 +75,7 @@ export default function Projects() {
         </motion.div>
 
         {/* Cards */}
-        <motion.div layout className="proj-grid">
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
             {filtered.map((project, i) => (
               <motion.div

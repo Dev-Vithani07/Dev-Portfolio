@@ -16,7 +16,6 @@ const Contact = () => {
 
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
-
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState(null);
 
@@ -27,6 +26,7 @@ const Contact = () => {
     const newErrors = {};
 
     if (!formData.name.trim()) newErrors.name = "Name is required";
+
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.com$/.test(formData.email)) {
@@ -35,7 +35,6 @@ const Contact = () => {
 
     if (!service) newErrors.service = "Select a service";
     if (!budget) newErrors.budget = "Select a budget";
-
     if (!formData.message.trim()) newErrors.message = "Message is required";
 
     return newErrors;
@@ -76,7 +75,7 @@ const Contact = () => {
           service,
           budget,
         },
-        process.env.NEXT_PUBLIC_ACCOUNT_ID,
+        process.env.NEXT_PUBLIC_ACCOUNT_ID
       );
 
       setToast({ type: "success", text: "Message sent successfully!" });
@@ -124,6 +123,31 @@ const Contact = () => {
         )}
       </AnimatePresence>
 
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+        className="mb-16"
+      >
+        <p
+          className="font-mono text-xs tracking-widest uppercase mb-3"
+          style={{ color: "#7F77DD" }}
+        >
+          04 / Contact
+        </p>
+
+        <h2
+          className="font-display font-extrabold leading-none tracking-tight"
+          style={{
+            fontSize: "clamp(36px, 4vw, 52px)",
+            color: "#f0eeff",
+          }}
+        >
+          Let’s Work Together
+        </h2>
+      </motion.div>
+
       <div className="grid md:grid-cols-2 gap-10">
         <motion.div
           initial={{ opacity: 0, x: -40 }}
@@ -136,8 +160,7 @@ const Contact = () => {
             className="text-sm leading-relaxed"
             style={{ color: "var(--text-secondary)" }}
           >
-            I am always open to discussing new projects, creative ideas or
-            opportunities.
+            I am always open to discussing new projects, creative ideas or opportunities.
           </p>
 
           {[
@@ -185,7 +208,7 @@ const Contact = () => {
               onChange={handleChange}
               onBlur={() => handleBlur("name")}
               placeholder="Your Name"
-              className="w-full p-3 rounded-lg border focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-[#7F77DD]"
               style={{
                 background: "var(--bg-elevated)",
                 borderColor:
@@ -207,7 +230,7 @@ const Contact = () => {
               onChange={handleChange}
               onBlur={() => handleBlur("email")}
               placeholder="Your Email"
-              className="w-full p-3 rounded-lg border focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-[#7F77DD]"
               style={{
                 background: "var(--bg-elevated)",
                 borderColor:
@@ -280,7 +303,7 @@ const Contact = () => {
               onBlur={() => handleBlur("message")}
               rows="4"
               placeholder="Your Message"
-              className="w-full p-3 rounded-lg border"
+              className="w-full p-3 rounded-lg border resize-none focus:outline-none focus:ring-2 focus:ring-[#7F77DD]"
               style={{
                 background: "var(--bg-elevated)",
                 borderColor:

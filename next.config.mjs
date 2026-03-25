@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
+// next.config.js
+
 const nextConfig = {
-  /* config options here */
+  devIndicators: {
+    buildActivity: false,
+  },
 };
+
 
 export default nextConfig;

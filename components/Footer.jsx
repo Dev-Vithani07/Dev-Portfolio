@@ -7,7 +7,7 @@ import { RiLinkedinLine, RiTwitterXLine, RiInstagramLine } from "react-icons/ri"
 const Footer = () => {
   return (
     <footer
-      className="px-6 md:px-24 py-10 border-t"
+      className="px-6 md:px-12 lg:px-24 py-10 border-t"
       style={{
         background: "var(--bg-base)",
         borderColor: "var(--border-subtle)",
@@ -18,9 +18,10 @@ const Footer = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="flex flex-col md:flex-row justify-between items-center gap-6"
+        className="flex flex-col md:flex-row items-center justify-between w-full gap-8 md:gap-0"
       >
-        <div className="flex flex-col gap-2 text-center md:text-left">
+
+        <div className="flex-1 flex flex-col gap-2 text-center md:text-left items-center md:items-start w-full">
           <h3
             className="font-display font-bold text-lg"
             style={{ color: "#f0eeff" }}
@@ -35,7 +36,7 @@ const Footer = () => {
           </span>
         </div>
 
-        <div className="flex gap-6 text-xs font-mono">
+        <div className="flex-1 flex justify-center gap-6 text-xs font-mono w-full">
           {["Home", "Projects", "Contact"].map((link) => (
             <a
               key={link}
@@ -48,9 +49,10 @@ const Footer = () => {
           ))}
         </div>
 
-        <div className="flex gap-5 text-lg">
+
+        <div className="flex-1 flex justify-center md:justify-end gap-5 text-lg w-full">
           <a
-            href="#"
+            href="https://www.instagram.com/_dev__1405/"
             className="transition hover:scale-110"
             style={{ color: "#7F77DD" }}
           >
@@ -58,7 +60,7 @@ const Footer = () => {
           </a>
 
           <a
-            href="#"
+            href="https://www.linkedin.com/in/dev-vithani/"
             className="transition hover:scale-110"
             style={{ color: "#5DCAA5" }}
           >
@@ -66,7 +68,7 @@ const Footer = () => {
           </a>
 
           <a
-            href="#"
+            href="https://x.com/Dev_1405_"
             className="transition hover:scale-110"
             style={{ color: "#85B7EB" }}
           >

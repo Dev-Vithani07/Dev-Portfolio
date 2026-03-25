@@ -14,7 +14,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="min-h-screen flex items-center gap-20 px-24 py-24"
+      className="min-h-screen flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-12 lg:gap-20 px-6 md:px-12 lg:px-24 py-16 lg:py-24"
       style={{ background: "var(--bg-base)" }}
     >
       <motion.div
@@ -25,19 +25,20 @@ const About = () => {
         className="relative flex shrink-0"
       >
         <div
-          className="relative h-72 w-72 rounded-3xl overflow-hidden border border-purple-400/20"
+          className="relative h-64 w-64 md:h-72 md:w-72 lg:h-88 lg:w-88 rounded-3xl overflow-hidden border border-purple-400/20"
           style={{ background: "var(--bg-surface)" }}
         >
           <Image
             src="/me.png"
-            alt="Dev Vithani"
-            fill
-            className="object-cover"
+            alt="Me"
+            width={400}
+            height={400}
+            className="w-full h-auto"
           />
         </div>
       </motion.div>
 
-      <div className="flex flex-col gap-6 max-w-xl">
+      <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-6 max-w-xl">
         <motion.p
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -110,7 +111,7 @@ const About = () => {
             ease: [0.22, 0.61, 0.36, 1],
           }}
           viewport={{ once: true }}
-          className="flex flex-wrap gap-2"
+          className="flex flex-wrap justify-center lg:justify-start gap-2"
         >
           {[
             "Flutter",
