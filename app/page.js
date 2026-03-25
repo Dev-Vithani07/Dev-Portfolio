@@ -1,8 +1,9 @@
-import About from '@/section/About'
-import Contact from '@/section/Contact'
 import Hero from '@/section/Hero'
-import Projects from '@/section/Projects'
+import About from '@/section/About'
 import Skills from '@/section/Skills'
+import Projects from '@/section/Projects'
+import Contact from '@/section/Contact'
+
 import React from 'react'
 
 const page = () => {

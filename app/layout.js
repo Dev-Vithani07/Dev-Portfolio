@@ -1,7 +1,7 @@
 import "./globals.css";
 import { Syne, DM_Sans, Space_Mono } from "next/font/google";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
 const syne = Syne({
   subsets: ["latin"],
