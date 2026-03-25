@@ -165,7 +165,7 @@ const Contact = () => {
 
           {[
             { icon: "ri-discord-line", title: "Discord", value: "dev_vithani" },
-            { icon: "ri-twitter-x-line", title: "X", value: "@@Dev_1405_" },
+            { icon: "ri-twitter-x-line", title: "X", value: "@Dev_1405_" },
             { icon: "KG", title: "Kaggle", value: "kaggle.com/devvithani" },
             { icon: "ri-mail-line", title: "Email", value: "devvithani.k@gmail.com" },
           ].map((item, i) => (
